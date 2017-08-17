@@ -1,0 +1,155 @@
+{
+    "package": "BingSpeech",
+    "tagline": "BingSpeech API",
+    "description": "Microsoft\u2019s Speech to Text and Text to Speech cloud offerings help you put speech to work in your application. Microsoft's Speech APIs can transcribe speech to text and can generate speech from text. These APIs enable you to create powerful experiences that delight your users.",
+    "image": "https:\/\/logo.clearbit.com\/microsoft.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-BingSpeech-Package",
+    "keywords": [
+        "API",
+        "recognition",
+        "microsoft",
+        "detection"
+    ],
+    "accounts": {
+        "domain": "microsoft.com",
+        "credentials": [
+            "subscriptionKey",
+            "accessToken"
+        ]
+    },
+    "blocks": [
+        {
+            "name": "getAccessToken",
+            "description": "Exchange you subscriptionKey to accessToken.",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "speechRecognition",
+            "description": "There are three modes of recognition: interactive, conversation, and dictation. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.",
+            "args": [
+                {
+                    "name": "accessToken",
+                    "type": "credentials",
+                    "info": "Your accessToken.",
+                    "required": true
+                },
+                {
+                    "name": "mode",
+                    "type": "Select",
+                    "options": [
+                        "Interactive",
+                        "Conversation",
+                        "Dictation"
+                    ],
+                    "info": "Must be: Interactive, Conversation, Dictation",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "The value of the language query parameter must be one of the languages that are supported by the service, as specified in BCP 47 format.",
+                    "required": true
+                },
+                {
+                    "name": "file",
+                    "type": "File",
+                    "info": "Actual wave file.",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "textToSpeach",
+            "description": "Text to speech conversion in a variety of different voices and languages.",
+            "args": [
+                {
+                    "name": "accessToken",
+                    "type": "credentials",
+                    "info": "Your accessToken.",
+                    "required": true
+                },
+                {
+                    "name": "outputFormat",
+                    "type": "Select",
+                    "options": [
+                        "ssml-16khz-16bit-mono-tts",
+                        "raw-16khz-16bit-mono-pcm",
+                        "audio-16khz-16kbps-mono-siren",
+                        "riff-16khz-16kbps-mono-siren",
+                        "riff-16khz-16bit-mono-pcm",
+                        "audio-16khz-128kbitrate-mono-mp3",
+                        "audio-16khz-64kbitrate-mono-mp3",
+                        "audio-16khz-32kbitrate-mono-mp3"
+                    ],
+                    "info": "Must be: ssml-16khz-16bit-mono-tts,raw-16khz-16bit-mono-pcm,audio-16khz-16kbps-mono-siren,riff-16khz-16kbps-mono-siren,riff-16khz-16bit-mono-pcm,audio-16khz-128kbitrate-mono-mp3,audio-16khz-64kbitrate-mono-mp3,audio-16khz-32kbitrate-mono-mp3",
+                    "required": true
+                },
+                {
+                    "name": "locale",
+                    "type": "String",
+                    "info": "The value of the language query parameter must be one of the languages that are supported by the service, as specified in BCP 47 format.",
+                    "required": true
+                },
+                {
+                    "name": "gender",
+                    "type": "Select",
+                    "options": [
+                        "male",
+                        "female"
+                    ],
+                    "info": "Must be: male, female",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "type": "String",
+                    "info": "Service name mapping",
+                    "required": true
+                },
+                {
+                    "name": "text",
+                    "type": "String",
+                    "info": "Conversion text",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
