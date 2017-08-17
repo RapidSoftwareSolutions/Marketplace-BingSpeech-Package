@@ -39,7 +39,7 @@ $app->post('/api/BingSpeech/textToSpeach', function ($request, $response) {
                 'multipart' => [
                     [
                         "name" => "file",
-                        "filename" => "filename.mp3",
+                        "filename" => "filename",
                         "contents" => $responseBody
                     ]
                 ]
