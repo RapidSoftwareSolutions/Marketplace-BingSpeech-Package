@@ -17,7 +17,8 @@
       "accessToken"
     ]
   },
-  "blocks": [{
+  "blocks": [
+    {
     "name": "getAccessToken",
     "description": "Exchange you subscriptionKey to accessToken.",
     "args": [{

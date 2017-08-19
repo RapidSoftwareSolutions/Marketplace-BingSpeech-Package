@@ -48,3 +48,4 @@ Text to speech conversion in a variety of different voices and languages.
 | serviceName | String     | Service name mapping
 | text        | String     | Conversion text
 
+[Read for more information](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput)
