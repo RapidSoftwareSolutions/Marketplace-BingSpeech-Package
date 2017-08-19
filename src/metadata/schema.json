@@ -123,6 +123,12 @@
           "type": "String",
           "info": "Conversion text",
           "required": true
+        },
+        {
+          "name": "serviceName",
+          "type": "String",
+          "info": "Service name mapping",
+          "required": true
         }
       ],
       "url": "https://speech.platform.bing.com/synthesize",
