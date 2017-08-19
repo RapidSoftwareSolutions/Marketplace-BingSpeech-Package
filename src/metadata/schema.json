@@ -17,48 +17,44 @@
       "accessToken"
     ]
   },
-  "blocks": [
-    {
-      "name": "getAccessToken",
-      "description": "Exchange you subscriptionKey to accessToken.",
-      "args": [
-        {
-          "name": "subscriptionKey",
-          "type": "credentials",
-          "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
-          "required": true
-        }
-      ],
-      "url": "https://api.cognitive.microsoft.com/sts/v1.0/issueToken",
-      "request": {
-        "method": "post",
-        "paramsType": "query",
-        "headers": {
-          "Ocp-Apim-Subscription-Key": "{$data['subscriptionKey']}"
-        }
-      },
-      "callbacks": [{
-        "name": "error",
-        "info": "Error"
-      }, {
-        "name": "success",
-        "info": "Success"
-      }]
+  "blocks": [{
+    "name": "getAccessToken",
+    "description": "Exchange you subscriptionKey to accessToken.",
+    "args": [{
+      "name": "subscriptionKey",
+      "type": "credentials",
+      "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+      "required": true
+    }],
+    "url": "https://api.cognitive.microsoft.com/sts/v1.0/issueToken",
+    "request": {
+      "method": "post",
+      "paramsType": "query",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{$data['subscriptionKey']}"
+      }
     },
+    "callbacks": [{
+      "name": "error",
+      "info": "Error"
+    }, {
+      "name": "success",
+      "info": "Success"
+    }]
+  },
     {
       "name": "speechRecognition",
       "description": "There are three modes of recognition: interactive, conversation, and dictation. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "Your accessToken.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "credentials",
+        "info": "Your accessToken.",
+        "required": true
+      },
         {
           "name": "mode",
           "type": "Select",
-          "options": ["Interactive","Conversation","Dictation"],
+          "options": ["Interactive", "Conversation", "Dictation"],
           "info": "Must be: Interactive, Conversation, Dictation",
           "required": true
         },
@@ -95,17 +91,16 @@
     {
       "name": "textToSpeach",
       "description": "Text to speech conversion in a variety of different voices and languages.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "credentials",
-          "info": "Your accessToken.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "credentials",
+        "info": "Your accessToken.",
+        "required": true
+      },
         {
           "name": "outputFormat",
           "type": "Select",
-          "options": ["ssml-16khz-16bit-mono-tts","raw-16khz-16bit-mono-pcm","audio-16khz-16kbps-mono-siren","riff-16khz-16kbps-mono-siren","riff-16khz-16bit-mono-pcm","audio-16khz-128kbitrate-mono-mp3","audio-16khz-64kbitrate-mono-mp3","audio-16khz-32kbitrate-mono-mp3"],
+          "options": ["ssml-16khz-16bit-mono-tts", "raw-16khz-16bit-mono-pcm", "audio-16khz-16kbps-mono-siren", "riff-16khz-16kbps-mono-siren", "riff-16khz-16bit-mono-pcm", "audio-16khz-128kbitrate-mono-mp3", "audio-16khz-64kbitrate-mono-mp3", "audio-16khz-32kbitrate-mono-mp3"],
           "info": "Must be: Interactive, Conversation, Dictation ssml-16khz-16bit-mono-tts,raw-16khz-16bit-mono-pcm,audio-16khz-16kbps-mono-siren,riff-16khz-16kbps-mono-siren,riff-16khz-16bit-mono-pcm,audio-16khz-128kbitrate-mono-mp3,audio-16khz-64kbitrate-mono-mp3,audio-16khz-32kbitrate-mono-mp3",
           "required": true
         },
@@ -118,7 +113,7 @@
         {
           "name": "gender",
           "type": "Select",
-          "options": ["male","female"],
+          "options": ["male", "female"],
           "info": "Must be: male, female",
           "required": true
         },
@@ -127,7 +122,7 @@
           "type": "String",
           "info": "Conversion text",
           "required": true
-        },
+        }
       ],
       "url": "https://speech.platform.bing.com/synthesize",
       "request": {
@@ -135,7 +130,7 @@
         "paramsType": "query",
         "headers": {
           "Authorization": "Bearer {$data['accessToken']}",
-          "X-Microsoft-OutputFormat":"{$data['outputFormat']}"
+          "X-Microsoft-OutputFormat": "{$data['outputFormat']}"
         }
       },
       "callbacks": [{
